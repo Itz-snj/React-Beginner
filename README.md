@@ -1,4 +1,4 @@
-I'll help you modify the README.md file to make it more welcoming and informative for Apertre 2.0 contributors.
+
 
 ```markdown:/Users/sumanjain/Desktop/Apertre-Projects/React-Beginner/README.md
 # Hey, Welcome to Apertre 2.0! 👋
