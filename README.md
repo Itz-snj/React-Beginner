@@ -8,14 +8,17 @@ The Link to the design file [Figma Link]: https://www.figma.com/design/XzYvVRNI4
 
 This is a repository where you can learn and work on a frontend project built with React. We're excited to have you here!
 
-## Getting Started
+## Tech Stack
+1. REACT JS
+2. Tailwind CSS
+
 
 ### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn
 
-### Running Locally
-1. Clone the repository
+### Running the Project Locally
+1. Fork and Clone the repository
 ```bash
 git clone <repository-url>
 ```
@@ -37,24 +40,29 @@ yarn dev
 ```
 The application will be available at `http://localhost:5173`
 
-## Project Structure
+# Note
+Make sure to keep your local branch up-to-date with the main repository, before commits.
 
+## After doing the changes: 
+1. Check for the changes in main branch. 
+2. Add the main repo to your upstream remote.
+```git remote add upstream https://github.com/original-owner/repo-name.git```
+3. Fetch the latest changes from the upstream remote. 
+```git fetch upstream```
+4. Compare your branch and push the changes to your fork.
+5. Send a PR to the main branch.
+
+## Project Structure
+1. Make sure to add all the frontend code in the `src` folder.
 ### Components
-All reusable components should be added to the `components` folder. If you want to add a new section to the web app, please:
-1. Create a new component in the `components` folder
-2. Import and use it in the appropriate parent component
-3. Follow the existing code style and conventions
+All reusable components should be added to the `src/components` folder. If you want to add a new section to the web app, please:
+1. Import and use it in the appropriate parent component
+2. Follow the existing code style and conventions
 
 ## Technical Stack
 - React + Vite
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) - Uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) - Uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Contributing
-We welcome contributions! Here's how you can contribute to this project:
-
-1. Fork the repository by clicking the 'Fork' button at the top right of this page
-2. Clone your forked repository. 
 
 # Note
 Make sure to keep your local branch up-to-date with the main repository, before commits.
