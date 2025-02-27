@@ -1,4 +1,3 @@
-markdown:/Users/sumanjain/Desktop/Apertre-Projects/React-Beginner/README.md
 # Hey, Welcome to Apertre 2.0! 👋
 
 Please make sure to go through the README.md file carefully before starting the project. It contains important information about the project, its structure, and how to run it locally.
