@@ -1,7 +1,10 @@
-
-
 ```markdown:/Users/sumanjain/Desktop/Apertre-Projects/React-Beginner/README.md
 # Hey, Welcome to Apertre 2.0! 👋
+
+Please make sure to go through the README.md file carefully before starting the project. It contains important information about the project, its structure, and how to run it locally.
+
+# Figma, file link
+The Link to the design file [Figma Link]: https://www.figma.com/design/XzYvVRNI4v50tsxvvS041v/Untitled?node-id=0-1&t=CXTiGt5yDzSL2nDA-1   
 
 This is a repository where you can learn and work on a frontend project built with React. We're excited to have you here!
 
@@ -48,18 +51,14 @@ All reusable components should be added to the `components` folder. If you want 
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) - Uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## Contributing
-Feel free to contribute by adding new components or improving existing ones. Make sure to create a new branch for your changes and submit a pull request.
+We welcome contributions! Here's how you can contribute to this project:
+
+1. Fork the repository by clicking the 'Fork' button at the top right of this page
+2. Clone your forked repository. 
+
+# Note
+Make sure to keep your local branch up-to-date with the main repository, before commits.
 
 ## Need Help?
 If you have any questions or need assistance, please feel free to open an issue or reach out to the maintainers.
 ```
-
-This updated README.md provides:
-1. A welcoming introduction
-2. Clear instructions for running the project locally
-3. Information about the components folder and how to add new sections
-4. The original technical stack information
-5. Basic contributing guidelines
-6. A section for getting help
-
-You may want to update the repository URL and add any specific contribution guidelines or coding standards that you want contributors to follow.
