@@ -5,6 +5,8 @@ Please make sure to go through the README.md file carefully before starting the 
 # Figma, file link
 The Link to the design file [Figma Link]: " https://www.figma.com/design/XzYvVRNI4v50tsxvvS041v/Untitled?node-id=0-1&t=CXTiGt5yDzSL2nDA-1 "
 
+Assets : "https://drive.google.com/drive/folders/1GMIlq-WSqPA2JqUaE657_fd_Zyakr5ea?usp=sharing"
+
 This is a repository where you can learn and work on a frontend project built with React. We're excited to have you here!
 
 ## Tech Stack
