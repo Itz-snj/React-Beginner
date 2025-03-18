@@ -43,13 +43,13 @@ const WorkingProcess = () => {
         <section className="px-6 sm:px-8 py-12">
 
             <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-4 md:px-16 lg:gap-8">
-                <span className="flex flex-col md:flex-row justify-center md:ml-8 items-center text-4xl md:bg-green-300 md:rounded-xl font-medium">
-                    <h2 className="bg-green-300 rounded-xl md:rounded-r-0 p-3 md:whitespace-nowrap">Our Working</h2>
-                    <h2 className="bg-green-300 rounded-xl md:rounded-l-0 p-3">Process</h2>
+                <span className="flex flex-col md:flex-row justify-center md:ml-8 items-center md:text-3xl text-4xl md:bg-green-300 md:rounded-xl font-medium">
+                    <h2 className="bg-green-300 rounded-xl md:rounded-r-0 p-3  md:whitespace-nowrap">Our Working</h2>
+                    <h2 className="bg-green-300 rounded-xl md:rounded-l-0 md:pl-0 p-3">Process</h2>
                 </span>
 
 
-                <p className="text-black text-lg text-center md:text-left md:self-center lg:self-start lg:max-w-[50%] lg:pr-32 pb-4">
+                <p className="text-black md:text-base lg:text-lg text-lg text-center md:text-left md:self-center lg:self-start lg:max-w-[50%] lg:pr-32 pb-4">
                     Step-by-Step Guide to Achieving <span className="md:block">Your Business Goals</span>
                 </p>
             </div>
