@@ -6,6 +6,8 @@ import Services from "./components/services";
 import WorkingProcess from "./components/WorkingProcess";
 
 import CaseStudiesPage from "./components/case";
+import Footer from "./components/Footer";
+
 function App() {
   return (
     <div>
@@ -14,7 +16,7 @@ function App() {
       <Services/>
       <WorkingProcess/>
       <CaseStudiesPage/>
-
+      <Footer/>
     </div>
   );
 }
