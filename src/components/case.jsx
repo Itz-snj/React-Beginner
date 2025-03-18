@@ -1,34 +1,41 @@
-import Case from '../assests/news.png'
+import Case from '../assests/news.png';
 
 export default function CaseStudiesPage() {
   return (
-    <div className=" min-h-screen p-6">
+    <div className="min-h-screen px-6 md:px-12 lg:px-24 py-12">
       {/* Hero Section */}
-      <div className="bg-gray-200  p-8 flex flex-row justify-between rounded-4xl shadow-md ml-24 mr-12 items-center text-center">
-        <div className='flex flex-col '>
-          <h2 className="text-2xl font-semibold text-start mb-2">Let’s make things happen</h2>
-          <p className="text-gray-600 mt-2 max-w-lg  text-start mb-2">
+      <div className="bg-gray-200 p-8 flex flex-col md:flex-row justify-between items-center rounded-3xl shadow-md text-center md:text-left">
+        <div className="flex flex-col">
+          <h2 className="text-2xl font-semibold mb-2">Let’s make things happen</h2>
+          <p className="text-gray-600 mt-2 max-w-lg mb-4">
             Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.
           </p>
-          <button className="mt-4 mb-2 bg-black w-60  text-white px-6 py-2 rounded-lg">Get your free proposal</button>
+          <button className="mt-2 bg-black w-full md:w-60 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition duration-200">
+            Get your free proposal
+          </button>
         </div>
-        <div>
-          <img src={Case} alt="Case" className="w-64 h-64" />
+        <div className="mt-6 md:mt-0">
+          <img src={Case} alt="Case Study" className="w-48 md:w-64 h-auto" />
         </div>
       </div>
 
       {/* Case Studies Section */}
-      <div className="mt-24 mr-12 ml-24">
+      <div className="mt-16">
         <h3 className="text-xl font-bold flex items-center">
-          <span className="bg-green-500 text-black px-2 py-1 rounded mr-2">Case Studies</span>
+          <span className="bg-green-500 text-black px-3 py-1 rounded mr-2">Case Studies</span>
           <span className="text-black"> Explore Real-Life Examples of Our Proven Digital Marketing Success</span>
         </h3>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-12 ">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudies.map((study, index) => (
-            <div key={index} className="bg-black text-white p-6 rounded-2xl transition-transform hover:scale-105 duration-300 ease-in">
+            <div
+              key={index}
+              className="bg-black text-white p-6 rounded-2xl transition-transform hover:scale-105 duration-300 ease-in shadow-lg"
+            >
               <p>{study.description}</p>
-              <a href="#" className="text-green-400 mt-2 inline-block">Learn more →</a>
+              <a href="#" className="text-green-400 mt-2 inline-block hover:underline">
+                Learn more →
+              </a>
             </div>
           ))}
         </div>
@@ -44,7 +51,7 @@ const caseStudies = [
   },
   {
     description:
-      "For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic."
+      "For a B2B software company, we developed an SEO strategy that resulted in a first-page ranking for key keywords and a 200% increase in organic traffic."
   },
   {
     description:

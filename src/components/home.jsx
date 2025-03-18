@@ -18,31 +18,37 @@ const Hero = () => {
 
   return (
     <section className="text-center py-12 px-6">
-      <div className="flex flex-row justify-between">
-        <div className=" flex flex-col w-[60%] text-start ml-24 mt-4">
-          
-          <h2 className="text-6xl font-semibold mb-4">Navigating the <br></br> digital landscape <br></br>for success</h2>
-          <p className="text-gray-600  mb-6">
-            Our digital marketing agency helps businesses <br></br> grow and succeed online through a range of <br></br>
-            services including SEO, PPC, social media marketing, <br></br> and content creation.
-          </p>
-          
-          <button className="bg-black text-white px-6 py-3 rounded-lg w-60">
-            Book a consultation
-          </button>
-
-        </div>
-        <div className="flex w-[40%] mr-16">
-          <img src={Home} alt="Not-Found" ></img>
-        </div>
+    <div className="flex flex-col lg:flex-row items-center lg:justify-between">
+      {/* Left Section */}
+      <div className="flex flex-col w-full lg:w-[60%] text-start lg:ml-24 mt-4">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 leading-tight">
+          Navigating the <br /> digital landscape <br /> for success
+        </h2>
+        <p className="text-gray-600 text-sm md:text-base mb-6">
+          Our digital marketing agency helps businesses <br className="hidden lg:block" /> 
+          grow and succeed online through a range of <br className="hidden lg:block" />
+          services including SEO, PPC, social media marketing, <br className="hidden lg:block" />
+          and content creation.
+        </p>
+        <button className="bg-black text-white px-6 py-3 rounded-lg w-48 md:w-60">
+          Book a consultation
+        </button>
       </div>
-      {/* Company Logos */}
-      <div className="flex justify-between space-x-6 mt-24 ml-24 mr-16 ">
-        {companyLogos.map((company) => (
-          <img key={company.id} src={company.logo} alt="Company Logo" className="h-10" />
-        ))}
+  
+      {/* Right Section - Image */}
+      <div className="flex w-full lg:w-[40%] lg:mr-16 mt-6 lg:mt-0">
+        <img src={Home} alt="Not-Found" className="w-full max-w-sm mx-auto lg:max-w-full" />
       </div>
-    </section>
+    </div>
+  
+    {/* Company Logos */}
+    <div className="flex flex-wrap justify-center lg:justify-between space-x-6 mt-12 lg:mt-24 px-4 lg:ml-24 lg:mr-16">
+      {companyLogos.map((company) => (
+        <img key={company.id} src={company.logo} alt="Company Logo" className="h-8 md:h-10 mx-2" />
+      ))}
+    </div>
+  </section>
+  
   );
 };
 

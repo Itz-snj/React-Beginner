@@ -55,33 +55,43 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="px-8 py-12">
-      <div className="flex flex-row  ">
-        <h2 className=" text-4xl text-center  font-medium rounded-xl p-3 w-40 m-24 mb-4 bg-green-300">Services</h2>
-        <p className="text-black mb-8 mt-24 -ml-12 text-xl">
-          At our digital marketing agency, we offer a range of services to <br></br> help businesses grow and
-          succeed online. These services include:
+    <section className="px-6 md:px-12 lg:px-24 py-12">
+      {/* Header Section */}
+      <div className="flex flex-col md:flex-row items-center md:items-start md:justify-start">
+        <h2 className="text-3xl md:text-4xl font-medium rounded-xl p-3 w-40 mb-4 md:mb-0 bg-green-300 text-center">
+          Services
+        </h2>
+        <p className="text-black text-lg md:text-xl md:ml-6 md:mt-2 text-center md:text-left">
+          At our digital marketing agency, we offer a range of services to <br className="hidden md:block" />
+          help businesses grow and succeed online. These services include:
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-6 m-24 ">
+
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         {services.map((service, index) => (
           <div
-          key={index}
-          className={`p-6 rounded-4xl m-4 transition-transform duration-200 ease-in shadow-md flex flex-col justify-between ${service.bg} hover:scale-110 hover:shadow-lg`}
-        >
-        
-            <div className="flex flex-row justify-between">
-              <div className="flex flex-col ml-4">
-                <span className={`w-auto h-auto px-3 py-1 text-xl font-medium rounded ${service.textBg}`}>{service.title}</span>
-                <span className={`w-auto h-auto px-3 py-1 text-xl font-medium rounded -mt-1 ${service.textBg}`}>{service.title2}</span>
+            key={index}
+            className={`p-6 rounded-2xl transition-transform duration-200 ease-in shadow-md flex flex-col justify-between ${service.bg} hover:scale-105 hover:shadow-lg`}
+          >
+            {/* Service Title & Image */}
+            <div className="flex justify-between items-center">
+              <div className="flex flex-col">
+                <span className={`px-3 py-1 text-lg md:text-xl font-medium rounded ${service.textBg}`}>
+                  {service.title}
+                </span>
+                <span className={`px-3 py-1 text-lg md:text-xl font-medium rounded -mt-1 ${service.textBg}`}>
+                  {service.title2}
+                </span>
               </div>
-              <div className="mt-4 mr-6">
-                <img src={service.image} alt={service.title} className="w-52 h-40 mx-auto" />
-              </div>
+              <img src={service.image} alt={service.title} className="w-40 md:w-48 h-32 md:h-40 object-contain" />
             </div>
+
+            {/* Learn More Button */}
             <div className="flex justify-start p-4">
-              <button className="text-lg font-bold flex  space-x-2">
-                <span>Learn more</span> <span className="ml-2">→</span>
+              <button className="text-lg font-bold flex items-center space-x-2 hover:underline">
+                <span>Learn more</span>
+                <span className="ml-2">→</span>
               </button>
             </div>
           </div>
