@@ -12,6 +12,17 @@ const Navbar = () => {
     { name: "Case Studies", path: "case-studies" },
     { name: "Team", path: "team" },
   ];
+  
+  const username=window.localStorage.getItem("Username")
+  
+  const signout=()=>{
+    window.localStorage.removeItem("Username")
+    window.location.reload()
+   
+  }
+
+
+
 
   return (
     <nav className="flex justify-between items-center py-4 px-6 lg:px-24 bg-white shadow-md">
@@ -26,9 +37,16 @@ const Navbar = () => {
         ))}
       </ul>
       
-      <button className="hidden lg:block border px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100">
-        Request a quote
-      </button>
+      <div className="navbar-auths">
+          {username ? (
+            <div className="flex justify-center items-center gap-2 ">
+              <p className="text-nowrap   text-xl  font-medium border-b-2">{username}</p>
+            <button onClick={signout} className="btn-1  text-xl  font-medium border-b-2 ml-2">Logout</button>
+            </div>
+            ):(<a href="/login" className="btn-1 text-xl  font-medium border-b-2">Login</a>)}
+          {/* <a href="/login" className="btn-1">Login</a> */}
+       
+        </div>
       
       {/* Mobile Menu Icon */}
       <button className="lg:hidden text-gray-700" onClick={() => setIsOpen(!isOpen)}>
@@ -44,7 +62,7 @@ const Navbar = () => {
             </li>
           ))}
           <button className="border px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100">
-            Request a quote
+          Create Account
           </button>
         </ul>
       )}

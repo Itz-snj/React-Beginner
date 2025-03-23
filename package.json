@@ -12,6 +12,8 @@
   "dependencies": {
     "@shadcn/ui": "^0.0.4",
     "@tailwindcss/vite": "^4.0.13",
+    "axios": "^1.8.4",
+    "firebase": "^11.5.0",
     "lucide-react": "^0.481.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
