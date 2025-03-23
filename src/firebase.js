@@ -3,13 +3,13 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth"; // Import Authentication
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAb6XIukL1d2Qbu_VdLylqI7P3xZyTI7VI",
-  authDomain: "positivus-cb2eb.firebaseapp.com",
-  projectId: "positivus-cb2eb",
-  storageBucket: "positivus-cb2eb.firebasestorage.app",
-  messagingSenderId: "140294005011",
-  appId: "1:140294005011:web:e3d34d3cca2e73ae3fbae6",
-  measurementId: "G-00S7LCGC16"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
