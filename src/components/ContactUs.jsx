@@ -22,7 +22,7 @@ const ContactUs = () => {
                 </p>
             </div>
 
-            <div className="bg-[#F3F3F3] p-6 py-16 md:mx-4 md:justify-between md:pr-0 mx-auto rounded-4xl shadow-md flex flex-col md:flex-row items-center"> 
+            <div className="bg-[#F3F3F3] px-12 py-16  md:mx-4 md:justify-between md:pr-0 mx-auto rounded-4xl shadow-md flex flex-col md:flex-row items-center"> 
                 {/* Left Side - Form and Text */}
                 <div className="md:w-1/2 w-full md:text-left text-center">
                     {/* Radio Selection */}
@@ -99,7 +99,7 @@ const ContactUs = () => {
                     <div className="hidden md:block w-full mt-4">
                         <button
                             type="submit"
-                            className="w-full p-2 bg-black text-white rounded-md hover:bg-gray-800"
+                            className="w-full p-4 bg-black text-white rounded-md hover:bg-gray-800"
                         >
                             Send Message
                         </button>
