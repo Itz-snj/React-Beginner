@@ -7,6 +7,7 @@ import WorkingProcess from "./components/WorkingProcess";
 
 import CaseStudiesPage from "./components/case";
 import Footer from "./components/Footer";
+import ContactUs from "./components/ContactUs";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       <Services/>
       <WorkingProcess/>
       <CaseStudiesPage/>
-      <Footer/>
+      <ContactUs/>
+      <Footer/>      
     </div>
   );
 }
