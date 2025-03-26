@@ -61,10 +61,11 @@ const Services = () => {
         <h2 className="text-3xl md:text-4xl font-medium rounded-xl p-3 w-40 mb-4 md:mb-0 bg-green-300 text-center">
           Services
         </h2>
-        <p className="text-black text-lg md:text-xl md:ml-6 md:mt-2 text-center md:text-left">
-          At our digital marketing agency, we offer a range of services to <br className="hidden md:block" />
-          help businesses grow and succeed online. These services include:
-        </p>
+        <p className="text-black dark:text-white text-lg md:text-xl md:ml-6 md:mt-2 text-center md:text-left">
+  At our digital marketing agency, we offer a range of services to <br className="hidden md:block" />
+  help businesses grow and succeed online. These services include:
+</p>
+
       </div>
 
       {/* Services Grid */}
