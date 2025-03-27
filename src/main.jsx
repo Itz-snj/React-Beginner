@@ -4,7 +4,7 @@ import './index.css'
 import Landing from './components/landing'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './components/login'
-import Register from './components/Register'
+import Register from './components/register'
 import { AuthProvider } from './context/AuthContext'
 
 const root = createRoot(document.getElementById('root'))
