@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
-
+import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
   const navLinks = [
     { name: "Home", path: "home" },
     { name: "Services", path: "services" },
@@ -12,17 +16,22 @@ const Navbar = () => {
     { name: "Case Studies", path: "case-studies" },
     { name: "Team", path: "team" },
   ];
-  
-  const username=window.localStorage.getItem("Username")
-  
-  const signout=()=>{
-    window.localStorage.removeItem("Username")
-    window.location.reload()
-   
-  }
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
 
-
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+      navigate('/login');
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
 
   return (
     <nav className="flex justify-between items-center py-4 px-6 lg:px-24 bg-white shadow-md">
@@ -38,15 +47,25 @@ const Navbar = () => {
       </ul>
       
       <div className="navbar-auths">
-          {username ? (
-            <div className="flex justify-center items-center gap-2 ">
-              <p className="text-nowrap   text-xl  font-medium border-b-2">{username}</p>
-            <button onClick={signout} className="btn-1  text-xl  font-medium border-b-2 ml-2">Logout</button>
-            </div>
-            ):(<a href="/login" className="btn-1 text-xl  font-medium border-b-2">Login</a>)}
-          {/* <a href="/login" className="btn-1">Login</a> */}
-       
-        </div>
+        {user ? (
+          <div className="flex justify-center items-center gap-2">
+            <img 
+              src={user.photoURL} 
+              alt="Profile" 
+              className="w-8 h-8 rounded-full"
+            />
+            <p className="text-nowrap text-xl font-medium">{user.displayName}</p>
+            <button 
+              onClick={handleSignOut} 
+              className="btn-1 text-xl font-medium border-b-2 ml-2"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <a href="/login" className="btn-1 text-xl font-medium border-b-2">Login</a>
+        )}
+      </div>
       
       {/* Mobile Menu Icon */}
       <button className="lg:hidden text-gray-700" onClick={() => setIsOpen(!isOpen)}>
@@ -61,9 +80,11 @@ const Navbar = () => {
               <Link to={link.path} smooth={true} duration={500} onClick={() => setIsOpen(false)}>{link.name}</Link>
             </li>
           ))}
-          <button className="border px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100">
-          Create Account
-          </button>
+          {user && (
+            <li className="cursor-pointer text-gray-700 hover:text-black">
+              <button onClick={handleSignOut}>Sign Out</button>
+            </li>
+          )}
         </ul>
       )}
     </nav>
