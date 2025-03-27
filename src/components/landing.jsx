@@ -6,7 +6,7 @@ import Services from "./services";
 import WorkingProcess from "./WorkingProcess";
 import TeamSection from "./team";
 import CaseStudiesPage from "./case";
-import Footer from "./Footer";
+import Footer from "./footer";
 import Navbar from "./navbar";
 function App() {
   return (
