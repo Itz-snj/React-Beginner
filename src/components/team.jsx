@@ -35,7 +35,7 @@ export default function TeamSection() {
   return (
     <section className="px-6 py-12 ">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-900">Team</h2>
+        <h2 className="text-3xl  font-bold ">Team</h2>
         <p className="text-gray-600 mt-2">
           Meet the skilled and experienced team behind our successful digital marketing strategies.
         </p>
@@ -65,8 +65,8 @@ export default function TeamSection() {
             </div>
             <div className="mt-4">
               <h3 className="text-lg font-semibold text-gray-800">{member.name}</h3>
-              <p className="text-sm text-green-600">{member.role}</p>
-              <p className="text-gray-600 mt-2">{member.experience}</p>
+              <p className="text-sm keep-green text-green-600">{member.role}</p>
+              <p className="dark-keep-black mt-2">{member.experience}</p>
             </div>
           </div>
         ))}

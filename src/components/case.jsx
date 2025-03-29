@@ -6,8 +6,8 @@ export default function CaseStudiesPage() {
       {/* Hero Section */}
       <div className="bg-gray-200 p-8 flex flex-col md:flex-row justify-between items-center rounded-3xl shadow-md text-center md:text-left">
         <div className="flex flex-col">
-          <h2 className="text-2xl font-semibold mb-2">Let’s make things happen</h2>
-          <p className="text-gray-600 mt-2 max-w-lg mb-4">
+          <h2 className="text-2xl dark-keep-black font-semibold mb-2">Let’s make things happen</h2>
+          <p className="text-gray-600 dark-keep-black mt-2 max-w-lg mb-4">
             Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.
           </p>
           <button className="mt-2 bg-black w-full md:w-60 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition duration-200">
@@ -23,7 +23,7 @@ export default function CaseStudiesPage() {
       <div className="mt-16">
         <h3 className="text-xl font-bold flex items-center">
           <span className="bg-green-500 text-black px-3 py-1 rounded mr-2">Case Studies</span>
-          <span className="text-black"> Explore Real-Life Examples of Our Proven Digital Marketing Success</span>
+          <span className=""> Explore Real-Life Examples of Our Proven Digital Marketing Success</span>
         </h3>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
