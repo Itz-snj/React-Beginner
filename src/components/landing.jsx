@@ -8,6 +8,7 @@ import TeamSection from "./team";
 import CaseStudiesPage from "./case";
 import Footer from "./footer";
 import Navbar from "./navbar";
+import ContactUs from "./ContactUs";
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
       <div id="working-process"><WorkingProcess /></div>
       <div id="case-studies"><CaseStudiesPage /></div>
       <div id="team"><TeamSection /></div>
+      <div id="contact-us"><ContactUs/></div>
       <Footer />
     </div>
   );
