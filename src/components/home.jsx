@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Company1 from "../assests/c1.png";
 import Company2 from "../assests/c2.png";
 import Company3 from "../assests/c3.png";
@@ -21,7 +22,12 @@ const Hero = () => {
     <section className="text-center py-12 px-6">
       <div className="flex flex-col lg:flex-row items-center lg:justify-between">
         {/* Left Section */}
-        <div className="flex flex-col w-full lg:w-[60%] text-start lg:ml-24 mt-4">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex flex-col w-full lg:w-[60%] text-start lg:ml-24 mt-4"
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 leading-tight">
             Navigating the <br /> digital landscape <br /> for success
           </h2>
@@ -34,23 +40,45 @@ const Hero = () => {
           <button className="bg-black text-white px-6 py-3 rounded-lg w-48 md:w-60">
             Book a consultation
           </button>
-        </div>
+        </motion.div>
 
         {/* Right Section - Image */}
-        <div className="flex w-full lg:w-[40%] lg:mr-16 mt-6 lg:mt-0">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex w-full lg:w-[40%] lg:mr-16 mt-6 lg:mt-0"
+        >
           <img src={Home} alt="Not-Found" className="w-full max-w-sm mx-auto lg:max-w-full" />
-        </div>
+        </motion.div>
       </div>
 
-      {/* Company Logos - White Background in Dark Mode */}
-      <div className="flex flex-wrap justify-center lg:justify-between space-x-6 mt-12 lg:mt-24 px-4 lg:ml-24 lg:mr-16 
-                logo-container">
-  {companyLogos.map((company) => (
-    <img key={company.id} src={company.logo} alt="Company Logo" className="h-8 md:h-10 mx-2" />
-  ))}
-</div>
-
-
+      {/* Company Logos */}
+      <motion.div
+        className="flex flex-wrap justify-center lg:justify-between space-x-6 mt-12 lg:mt-24 px-4 lg:ml-24 lg:mr-16 logo-container"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+      >
+        {companyLogos.map((company) => (
+          <motion.img
+            key={company.id}
+            src={company.logo}
+            alt="Company Logo"
+            className="h-8 md:h-10 mx-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          />
+        ))}
+      </motion.div>
     </section>
   );
 };
