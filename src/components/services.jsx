@@ -1,17 +1,17 @@
 import { ArrowRight } from "lucide-react";
-import s1 from '../assests/s1.png'
-import s2 from '../assests/s2.png'
-import s3 from '../assests/s3.png'
-import s4 from '../assests/s4.png'
-import s5 from '../assests/s5.png'
-import s6 from '../assests/s6.png'
-
+import { motion } from "framer-motion";
+import s1 from "../assests/s1.png";
+import s2 from "../assests/s2.png";
+import s3 from "../assests/s3.png";
+import s4 from "../assests/s4.png";
+import s5 from "../assests/s5.png";
+import s6 from "../assests/s6.png";
 
 const services = [
   {
     title: "Search engine ",
     title2: "optimization",
-    image: s2, // Replace with actual image
+    image: s2,
     bg: "bg-gray-100",
     textBg: "bg-green-500 text-white"
   },
@@ -46,7 +46,6 @@ const services = [
   {
     title: "Analytics and",
     title2: "Tracking",
-
     image: s6,
     bg: "bg-black text-white",
     textBg: "bg-white text-black"
@@ -56,24 +55,37 @@ const services = [
 const Services = () => {
   return (
     <section className="px-6 md:px-12 lg:px-24 py-12">
-      {/* Header Section */}
-      <div className="flex flex-col md:flex-row items-center md:items-start md:justify-start">
+      {/* Header Section with Framer Motion */}
+      <motion.div
+        className="flex flex-col md:flex-row items-center md:items-start md:justify-start"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <h2 className="text-3xl md:text-4xl font-medium rounded-xl p-3 w-40 mb-4 md:mb-0 bg-green-300 text-center">
           Services
         </h2>
         <p className="text-black dark:text-white text-lg md:text-xl md:ml-6 md:mt-2 text-center md:text-left">
-  At our digital marketing agency, we offer a range of services to <br className="hidden md:block" />
-  help businesses grow and succeed online. These services include:
-</p>
-
-      </div>
+          At our digital marketing agency, we offer a range of services to <br className="hidden md:block" />
+          help businesses grow and succeed online. These services include:
+        </p>
+      </motion.div>
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
             className={`p-6 rounded-2xl transition-transform duration-200 ease-in shadow-md flex flex-col justify-between ${service.bg} hover:scale-105 hover:shadow-lg`}
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+              duration: 1.1,
+              ease: "easeInOut",
+              delay: index * 0.1
+            }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             {/* Service Title & Image */}
             <div className="flex justify-between items-center">
@@ -95,7 +107,7 @@ const Services = () => {
                 <span className="ml-2">→</span>
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

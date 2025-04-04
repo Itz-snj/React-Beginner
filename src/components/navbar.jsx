@@ -1,14 +1,35 @@
 import React, { useState, useEffect } from "react";
-
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
+import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("theme") === "dark");
+  const [user, setUser] = useState(null);
+  const [scrolling, setScrolling] = useState(false);
+  const navigate = useNavigate();
 
+  const navLinks = [
+    { name: "Home", path: "home" },
+    { name: "Services", path: "services" },
+    { name: "Working Process", path: "working-process" },
+    { name: "Case Studies", path: "case-studies" },
+    { name: "Team", path: "team" },
+  ];
+
+  // Detect scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolling(window.scrollY > 50);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Dark mode toggle effect
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode");
@@ -23,32 +44,7 @@ const Navbar = () => {
     setDarkMode(!darkMode);
   };
 
-import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-scroll";
-import { auth } from '../firebase';
-import { useNavigate } from 'react-router-dom';
-
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
-
-
-  const navLinks = [
-    { name: "Home", path: "home" },
-    { name: "Services", path: "services" },
-    { name: "Working Process", path: "working-process" },
-    { name: "Case Studies", path: "case-studies" },
-    { name: "Team", path: "team" },
-  ];
-
-
-  const username = window.localStorage.getItem("Username");
-
-  const signout = () => {
-    window.localStorage.removeItem("Username");
-    window.location.reload();
-
+  // Auth state listener
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
@@ -63,11 +59,12 @@ const Navbar = () => {
     } catch (error) {
       console.error("Error signing out:", error);
     }
-
   };
 
   return (
-    <nav className="flex justify-between items-center py-4 px-6 lg:px-24 bg-white shadow-md">
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+      ${scrolling ? "bg-white shadow-md py-3" : "bg-transparent py-4"} flex justify-between items-center px-6 lg:px-24`}>
+      
       <h1 className="text-xl font-semibold">🚀 Positivus</h1>
 
       {/* Desktop Navigation */}
@@ -86,42 +83,20 @@ const Navbar = () => {
         {darkMode ? <FaSun color="yellow" /> : <FaMoon color="black" />}
       </button>
 
+      {/* Auth Display */}
       <div className="navbar-auths">
-
-        {username ? (
-          <div className="flex justify-center items-center gap-2">
-            <p className="text-nowrap text-xl font-medium border-b-2">{username}</p>
-            <button onClick={signout} className="btn-1 text-xl font-medium border-b-2 ml-2">
-
         {user ? (
           <div className="flex justify-center items-center gap-2">
-            <img 
-              src={user.photoURL} 
-              alt="Profile" 
-              className="w-8 h-8 rounded-full"
-            />
+            <img src={user.photoURL} alt="Profile" className="w-8 h-8 rounded-full" />
             <p className="text-nowrap text-xl font-medium">{user.displayName}</p>
-            <button 
-              onClick={handleSignOut} 
-              className="btn-1 text-xl font-medium border-b-2 ml-2"
-            >
-
+            <button onClick={handleSignOut} className="btn-1 text-xl font-medium border-b-2 ml-2">
               Logout
             </button>
           </div>
         ) : (
-
-          <a href="/login" className="btn-1 text-xl font-medium border-b-2">
-            Login
-          </a>
-        )}
-      </div>
-
-
           <a href="/login" className="btn-1 text-xl font-medium border-b-2">Login</a>
         )}
       </div>
-      
 
       {/* Mobile Menu Icon */}
       <button className="lg:hidden text-gray-700" onClick={() => setIsOpen(!isOpen)}>
@@ -148,7 +123,6 @@ const Navbar = () => {
               <button onClick={handleSignOut}>Sign Out</button>
             </li>
           )}
-
         </ul>
       )}
     </nav>

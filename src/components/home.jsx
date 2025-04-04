@@ -18,7 +18,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="text-center py-12 px-6">
+    <section className="text-center py-12 px-6 mt-18">
       <div className="flex flex-col lg:flex-row items-center lg:justify-between">
         {/* Left Section */}
         <div className="flex flex-col w-full lg:w-[60%] text-start lg:ml-24 mt-4">
