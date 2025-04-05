@@ -26,13 +26,15 @@ body.dark-mode {
   }
   
   /* General Styles */
-  nav {
+  /* nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     background: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+    
   }
   
   ul {
@@ -48,10 +50,10 @@ body.dark-mode {
   
   li:hover {
     color: gray;
-  }
+  } */
   
   /* Mobile Menu */
-  .mobile-menu {
+  /* .mobile-menu {
     position: absolute;
     top: 4rem;
     left: 0;
@@ -63,24 +65,24 @@ body.dark-mode {
     align-items: center;
     gap: 1rem;
     padding: 1rem 0;
-  }
+  } */
   /* Light mode (default) */
-body {
+/* body {
     background-color: white;
     color: black;
-  }
+  } */
   
   /* Dark mode */
-  .dark-mode {
+  /* .dark-mode {
     background-color: black;
     color: white;
   }
   .dark-mode p {
     color: white !important;
-}
+} */
 
 /* Exception: Keep specific p tags black in dark mode */
-.dark-mode .dark-keep-black {
+/* .dark-mode .dark-keep-black {
     color: black !important;
 }
 .dark-mode .keep-green{
@@ -96,10 +98,233 @@ body {
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+
+@import "tailwindcss/utilities";
+
+body {
+  padding-top: 90px; /* Adjust this based on navbar height */
+}
+/* 🌟 Glassy Navbar */
+nav {
+  width: 100%;
+  height: 100px; 
+  /* Increased height */
+  display: flex;
+  
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem; /* Increased padding */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease-in-out;
+}
+
+/* Light Mode Navbar - Soft Glassy White */
+body:not(.dark-mode) nav {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 4px 6px rgba(58, 162, 116, 0.879);
+  border-bottom: 2px solid rgb(90, 185, 128);
+}
+
+/* Dark Mode Navbar - Deep Black */
+body.dark-mode nav {
+  background: rgba(18, 18, 18, 0.9);
+  box-shadow: 0px 4px 10px rgba(50, 255, 126, 0.2); /* Neon glow */
+  border-bottom: 2px solid rgba(50, 255, 126, 0.2);
+}
+/* Navbar Links */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+nav ul li {
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease-in-out, transform 0.3s;
 }
 
 
-  
+/* 🌀 Navbar Hover Animation */
+/* Hover Effects */
+body:not(.dark-mode) nav ul li:hover {
+  color: #006400; /* Dark Green */
+  transform: scale(1.1);
+}
+
+body.dark-mode nav ul li:hover {
+  color: #32ff7e; /* Neon Green */
+  text-shadow: 0 0 10px #32ff7e, 0 0 20px #32ff7e;
+  transform: scale(1.1);
+}
+
+
+
+/* Light Mode: Dark Green Hover */
+nav ul li:hover {
+  transform: scale(1.1);
+  color: #006400; /* Dark Green */
+  text-shadow: 0 0 10px #32ff7e, 0 0 20px #32ff7e;
+}
+
+nav ul li::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #006400; /* Dark Green */
+  transition: all 0.3s ease-in-out;
+}
+nav ul li:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Dark Mode: Neon Green Glow */
+.dark-mode nav ul li {
+  color: white; /* Ensures contrast */
+}
+.dark-mode nav ul li:hover {
+  text-shadow: 0 0 10px #32ff7e, 0 0 20px #32ff7e;
+  color: #32ff7e; /* Neon Green */
+}
+
+.dark-mode nav ul li::after {
+  background-color: #32ff7e; /* Neon Green Underline */
+}
+
+/* 🌟 3D Effect on Login Button */
+/* 🌟 Light Mode 3D Login Button */
+.login-btn {
+  position: relative;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  background: linear-gradient(145deg, #ffffff, #e0e0e0);
+  color: #333;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15),
+              -5px -5px 10px rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+}
+
+
+/* 🚀 Transparent Hover Outline Effect */
+.login-btn::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 16px;
+  border: 2px solid rgba(0, 255, 100, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: scale(0.9);
+}
+
+/* 🏆 3D Pressed Effect */
+.login-btn:hover {
+  background: linear-gradient(145deg, #e0e0e0, #ffffff);
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.1),
+              inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+
+/* 🌟 Outline Appears on Hover */
+.login-btn:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* 🌙 Dark Mode Login Button */
+/* 🌙 Dark Mode Login Button */
+.dark-mode .login-btn {
+  background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+  color: white;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6),
+              -4px -4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* 🚀 Dark Mode Hover Glow Effect */
+.dark-mode .login-btn:hover {
+  background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+  box-shadow: 0 0 10px rgba(50, 255, 126, 0.8), 
+              0 0 20px rgba(50, 255, 126, 0.5);
+}
+
+/* 🌌 Transparent Glow Effect in Dark Mode */
+.dark-mode .login-btn::before {
+  border: 2px solid rgba(50, 255, 126, 0.5);
+}
+
+/* ✨ Neon Text Glow Effect in Dark Mode */
+.dark-mode nav ul li:hover {
+  text-shadow: 0 0 15px #32ff7e, 0 0 30px #32ff7e;
+}
+
+
+
+/* 🔽 Mobile Menu */
+.mobile-menu {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🌓 Light and Dark Mode */
+body {
+  background: white;
+  color: black;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.dark-mode {
+  background: black;
+  color: white;
+}
+
+.dark-mode p {
+  color: white !important;
+}
+
+/* 🎨 Logo Glow Effect */
+.logo-container {
+  transition: all 0.3s ease-in-out;
+}
+
+.dark-mode .logo-container {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
   
   
 
