@@ -1,3 +1,6 @@
+import React from "react";
+import { motion } from "framer-motion";
+
 export default function TeamSection() {
   const teamMembers = [
     {
@@ -33,18 +36,30 @@ export default function TeamSection() {
   ];
 
   return (
-    <section className="px-6 py-12 ">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl  font-bold ">Team</h2>
+    <section className="px-6 py-12">
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="max-w-6xl mx-auto text-center"
+      >
+        <h2 className="text-3xl font-bold">Team</h2>
         <p className="text-gray-600 mt-2">
           Meet the skilled and experienced team behind our successful digital marketing strategies.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto ">
+      {/* Cards */}
+      <div className="grid gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         {teamMembers.map((member, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
             className="relative p-6 bg-white rounded-xl shadow-lg border hover:shadow-xl transition-transform ease-in duration-400 hover:scale-105"
           >
             <div className="absolute top-4 right-4 bg-green-500 text-white p-2 rounded-full">
@@ -65,18 +80,25 @@ export default function TeamSection() {
             </div>
             <div className="mt-4">
               <h3 className="text-lg font-semibold text-gray-800">{member.name}</h3>
-              <p className="text-sm keep-green text-green-600">{member.role}</p>
-              <p className="dark-keep-black mt-2">{member.experience}</p>
+              <p className="text-sm text-green-600">{member.role}</p>
+              <p className="mt-2 text-gray-700">{member.experience}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      <div className="flex justify-center mt-8">
+      {/* Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="flex justify-center mt-8"
+      >
         <button className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition">
           See all team
         </button>
-      </div>
+      </motion.div>
     </section>
   );
 }
