@@ -27,6 +27,7 @@ body.dark-mode {
   
   /* General Styles */
   nav {
+    position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
